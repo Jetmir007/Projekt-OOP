@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Projekt__OOP
+namespace Projekt_OOP
 {
     public class GameObject
     {
@@ -20,6 +20,6 @@ namespace Projekt__OOP
 
         public Texture2D Texture{get; set;}
 
-        
+
     }
 }

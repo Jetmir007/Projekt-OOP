@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Projekt_OOP
 {
@@ -11,6 +13,7 @@ namespace Projekt_OOP
         public int AttackDamage {get; protected set;}
         public float Speed{get; protected set;}
         public bool IsAttacking{get; protected set;} = false;
+        protected bool isAttacking{get; set;} = false;
 
         protected float SpecialCooldown = 5f;
         protected float CurrentCooldown = 0f;
@@ -37,7 +40,7 @@ namespace Projekt_OOP
             IsAttacking = false;
         }
 
-        public abstract void Update(Gametime gametime)
+        public virtual void Update(GameTime gametime)
         {
             float delta = (float)gametime.ElapsedGameTime.TotalSeconds;
 
@@ -49,12 +52,12 @@ namespace Projekt_OOP
 
         public void Move(Vector2 direction)
         {
-            position += direction*Speed;
+            Position += direction*Speed;
         }
 
         protected void SetAttackState(bool state)
         {
-            IsAttacking = state;
+            isAttacking = state;
         }
     }
 }
