@@ -15,5 +15,11 @@ namespace Projekt__OOP
 
         public int Height {get; set;}
         public int Width {get; set;}
+
+        public virtual Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+
+        public Texture2D Texture{get; set;}
+
+        
     }
 }

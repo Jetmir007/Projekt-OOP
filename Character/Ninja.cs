@@ -5,24 +5,25 @@ using System.Threading.Tasks;
 
 namespace Projekt_OOP
 {
-    public class Swordsman
+    public class Ninja : CharacterBase, ICharacterAction
     {
-        private const int swingRange = 90;
-        private const int slashRange = 100;
-        public Swordsman(Texture2D texture, Vector2 startPosition) : base(texture, 45, 90)
+        private const int shurikenRange = 400;
+
+        public Ninja(Texture2D texture, Vector2 startPosition) : base(texture, 40, 90)
         {
             startPosition = Position;
-            Speed = 2.5f;
-            AttackDamage = 15;
-            SpecialCooldown = 6f;
+            Speed = 3.5f;
+            AttackDamage = 10;
+            SpecialCooldown = 7f;
         }
 
         public void Attack(CharacterBase opponent, int range)
         {
+            const int hitRange = 45;
             if (!isAttacking)
             {
                 SetAttackState(true);
-                if (CheckRange(opponent.Bounds.Center.ToVector2(), swingRange))
+                if (CheckRange(opponent.Bounds.Center.ToVector2(), hitRange))
                 {
                     opponent.TakeDamage(AttackDamage);
                 }
@@ -34,7 +35,7 @@ namespace Projekt_OOP
             if (!isAttacking && CurrentCooldown <= 0)
             {
                 SetAttackState(true);
-                if (CheckRange(opponent.Bounds.Center.ToVector2(), slashRange))
+                if (CheckRange(opponent.Bounds.Center.ToVector2(), shurikenRange))
                 {
                     opponent.TakeDamage(AttackDamage*2);
                 }
@@ -53,5 +54,6 @@ namespace Projekt_OOP
         {
             base.Update(gametime);
         }
+
     }
 }

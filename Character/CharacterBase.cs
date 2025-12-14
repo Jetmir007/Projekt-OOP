@@ -8,6 +8,53 @@ namespace Projekt_OOP
     public abstract class CharacterBase : GameObject
     {
         public int Hp {get; protected set;} = 100;
-        public int Attack {get; protected set;} = 10;
+        public int AttackDamage {get; protected set;}
+        public float Speed{get; protected set;}
+        public bool IsAttacking{get; protected set;} = false;
+
+        protected float SpecialCooldown = 5f;
+        protected float CurrentCooldown = 0f;
+
+        public CharacterType Type{get; protected set;}
+
+        public CharacterBase(Texture2D texture, int width, int height)
+        {
+            Texture = texture;
+            Width = width;
+            Height = height;
+        }
+
+        public virtual void TakeDamage(int damage)
+        {
+            Hp -= damage;
+        }
+
+        public void Reset(Vector2 startPosition)
+        {
+            Hp = 100;
+            Position = startPosition;
+            CurrentCooldown = 0f;
+            IsAttacking = false;
+        }
+
+        public abstract void Update(Gametime gametime)
+        {
+            float delta = (float)gametime.ElapsedGameTime.TotalSeconds;
+
+            if(CurrentCooldown > 0)
+            {
+                CurrentCooldown -= delta;
+            }
+        }
+
+        public void Move(Vector2 direction)
+        {
+            position += direction*Speed;
+        }
+
+        protected void SetAttackState(bool state)
+        {
+            IsAttacking = state;
+        }
     }
 }
