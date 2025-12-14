@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Projekt_OOP
 {
@@ -18,7 +20,7 @@ namespace Projekt_OOP
             SpecialCooldown = 4f;
         }
 
-        public void Attack(CharacterBase opponent, int range)
+        public void Attack(CharacterBase opponent)
         {
             if (!isAttacking)
             {
@@ -30,7 +32,7 @@ namespace Projekt_OOP
                 SetAttackState(false);
             }
         }
-        public void SpecialAttack(CharacterBase opponent, int range)
+        public void SpecialAttack(CharacterBase opponent)
         {
             if (!isAttacking && CurrentCooldown <= 0)
             {
@@ -50,7 +52,7 @@ namespace Projekt_OOP
             return distance <= maxDistance;
         }
 
-        public override void Update(Gametime gametime)
+        public override void Update(GameTime gametime)
         {
             base.Update(gametime);
         }

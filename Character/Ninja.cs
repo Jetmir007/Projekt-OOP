@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Projekt_OOP
 {
@@ -11,13 +13,13 @@ namespace Projekt_OOP
 
         public Ninja(Texture2D texture, Vector2 startPosition) : base(texture, 40, 90)
         {
-            startPosition = Position;
+            Position = startPosition;
             Speed = 3.5f;
             AttackDamage = 10;
             SpecialCooldown = 7f;
         }
 
-        public void Attack(CharacterBase opponent, int range)
+        public void Attack(CharacterBase opponent)
         {
             const int hitRange = 45;
             if (!isAttacking)
@@ -30,7 +32,7 @@ namespace Projekt_OOP
                 SetAttackState(false);
             }
         }
-        public void SpecialAttack(CharacterBase opponent, int range)
+        public void SpecialAttack(CharacterBase opponent)
         {
             if (!isAttacking && CurrentCooldown <= 0)
             {
@@ -50,7 +52,7 @@ namespace Projekt_OOP
             return distance <= maxDistance;
         }
 
-        public override void Update(Gametime gametime)
+        public override void Update(GameTime gametime)
         {
             base.Update(gametime);
         }

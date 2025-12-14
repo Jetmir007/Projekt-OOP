@@ -9,7 +9,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    private GameState _current =   GameState.MainMenu;
+    private GameState _current = GameState.MainMenu;
 
     private SpriteFont _font;
     private Texture2D _boxer, _swordsman, _ninja;
@@ -186,23 +186,23 @@ public class Game1 : Game
         };
     }
 
-    private void InGame(KeyboardState kState, Gametime gametime)
+    private void InGame(KeyboardState kState, GameTime gametime)
     {
-        _controller1.HandeInput(kState, _previousState);
-        _controller2.HandeInput(kState, _previousState);
+        _controller1.HandleInput(kState, _previousState);
+        _controller2.HandleInput(kState, _previousState);
 
         player1.Update(gametime);
         player2.Update(gametime);
 
-        if(_player1.Hp <= 0)
+        if(player1.Hp <= 0)
         {
             _winner = _p2Choice;
-            _current = Gamestate.Results;
+            _current = GameState.Results;
         }
-        else if(_player2.Hp <= 0)
+        else if(player2.Hp <= 0)
         {
             _winner = _p1Choice;
-            _current = Gamestate.Results;
+            _current = GameState.Results;
         }
     }
 
@@ -230,11 +230,11 @@ public class Game1 : Game
     {
         _spriteBatch.DrawString(_font, "Choose Your Character", new Vector2(750, 100), Color.White);
         CharacterType p1t = _p1Choice == CharacterType.None ? CharacterType.Boxer : _p1Choice;
-        TextureType2D p1text = TextureType(p1t);
+        Texture2D p1text = TextureType(p1t);
         _spriteBatch.Draw(p1text, new Vector2(400, 300), Color.White);
 
         CharacterType p2t = _p2Choice == CharacterType.None ? CharacterType.Boxer : _p2Choice;
-        TextureType2D p2text = TextureType(p2t);
+        Texture2D p2text = TextureType(p2t);
         _spriteBatch.Draw(p2text, new Vector2(1200, 300), Color.White);
     }
 

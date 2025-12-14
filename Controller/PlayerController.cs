@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace Projekt_OOP
 {
@@ -12,7 +14,7 @@ namespace Projekt_OOP
 
         private Keys _up, _down, _left, _right, _attack, _special;
 
-        public PlayerController(Characterbase p1, Characterbase p2, Keys up, Keys down, Keys left, Keys right, Keys attack, Keys special)
+        public PlayerController(CharacterBase p1, CharacterBase p2, Keys up, Keys down, Keys left, Keys right, Keys attack, Keys special)
         {
             character = p1;
             opponent = p2;
@@ -24,17 +26,18 @@ namespace Projekt_OOP
             _special = special;
         }
 
-        public void HandeInput(KeyBoardState kState, KeyBoardState pState)
+        public void HandleInput(KeyboardState kState, KeyboardState pState)
         {
             Vector2 direction = Vector2.Zero;
 
-            if(kState.IsKeyDown(_left)) direction = -1;
-            if(kState.IsKeyDown(_right)) direction = 1;
-            if(kState.IsKeyDown(_up)) direction = -1;
-            if(kState.IsKeyDown(_down)) direction = 1;
+            if(kState.IsKeyDown(_left)) direction -= -1;
+            if(kState.IsKeyDown(_right)) direction += 1;
+            if(kState.IsKeyDown(_up)) direction -= -1;
+            if(kState.IsKeyDown(_down)) direction += 1;
 
             if(direction != Vector2.Zero)
             {
+                direction.Normalize();
                 character.Move(direction);
             }
 
