@@ -1,7 +1,0 @@
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\mgcb.tool.restore
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\Projekt-OOP.csproj.AssemblyReference.cache
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\Projekt-OOP.GeneratedMSBuildEditorConfig.editorconfig
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\Projekt-OOP.AssemblyInfoInputs.cache
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\Projekt-OOP.AssemblyInfo.cs
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\Projekt-OOP.csproj.CoreCompileInputs.cache
-C:\Github\Projekt-OOP\obj\Debug\net8.0-windows\Projekt-OOP.sourcelink.json
