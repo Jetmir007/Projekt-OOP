@@ -17,6 +17,7 @@ namespace Projekt_OOP
             Speed = 3.5f;
             AttackDamage = 10;
             SpecialCooldown = 7f;
+            CurrentCooldown = 0f;
         }
 
         public void Attack(CharacterBase opponent)
@@ -41,7 +42,7 @@ namespace Projekt_OOP
                 {
                     opponent.TakeDamage(AttackDamage*2);
                 }
-                CurrenCooldown = SpecialCooldown;
+                CurrentCooldown = SpecialCooldown;
                 SetAttackState(false);
             }
         }

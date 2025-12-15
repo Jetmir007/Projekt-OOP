@@ -50,14 +50,34 @@ namespace Projekt_OOP
             }
         }
 
-        public void Move(Vector2 direction)
+        public void Move(int direction)
         {
-            Position += direction*Speed;
+            if(direction == 1)
+            {
+                Position.X = Position.X - Speed;
+            }
+            else if(direction == 2)
+            {
+                Position.X = Position.X + Speed;
+            }
+            else if(direction == 3)
+            {
+                Position.Y = Position.Y - Speed;
+            }
+            else if(direction == 4)
+            {
+                Position.Y = Position.Y + Speed;
+            }
         }
 
         protected void SetAttackState(bool state)
         {
             isAttacking = state;
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, Position, Color.White);
         }
     }
 }

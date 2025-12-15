@@ -28,16 +28,15 @@ namespace Projekt_OOP
 
         public void HandleInput(KeyboardState kState, KeyboardState pState)
         {
-            Vector2 direction = Vector2.Zero;
+            int direction = 0;
 
-            if(kState.IsKeyDown(_left)) direction -= -1;
-            if(kState.IsKeyDown(_right)) direction += 1;
-            if(kState.IsKeyDown(_up)) direction -= -1;
-            if(kState.IsKeyDown(_down)) direction += 1;
+            if(kState.IsKeyDown(_left)) direction = 1;
+            if(kState.IsKeyDown(_right)) direction = 2;
+            if(kState.IsKeyDown(_up)) direction = 3;
+            if(kState.IsKeyDown(_down)) direction = 4;
 
-            if(direction != Vector2.Zero)
+            if(direction != 0)
             {
-                direction.Normalize();
                 character.Move(direction);
             }
 

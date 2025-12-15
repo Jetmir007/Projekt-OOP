@@ -9,8 +9,8 @@ namespace Projekt_OOP
 {
     public class GameObject
     {
-        public Vector2 Position {get; set;}
 
+        public Vector2 Position {get; set;}
         public Vector2 Velocity {get; set;}
 
         public int Height {get; set;}

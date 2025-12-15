@@ -102,8 +102,7 @@ public class Game1 : Game
                 DrawCharacterSelect();
                 break;
             case GameState.InGame:
-                player1.Draw(_spriteBatch);
-                player2.Draw(_spriteBatch);
+                DrawInGame();
                 break;
             case GameState.Results:
                 _spriteBatch.DrawString(_font, $"{_winner} Wins!", new Vector2(800, 450), Color.White);
@@ -236,6 +235,12 @@ public class Game1 : Game
         CharacterType p2t = _p2Choice == CharacterType.None ? CharacterType.Boxer : _p2Choice;
         Texture2D p2text = TextureType(p2t);
         _spriteBatch.Draw(p2text, new Vector2(1200, 300), Color.White);
+    }
+
+    private void DrawInGame()
+    {
+        player1.Draw(_spriteBatch);
+        player2.Draw(_spriteBatch);
     }
 
     private Texture2D TextureType(CharacterType type)
