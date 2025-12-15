@@ -187,8 +187,8 @@ public class Game1 : Game
 
     private void InGame(KeyboardState kState, GameTime gametime)
     {
-        _controller1.HandleInput(kState, _previousState);
-        _controller2.HandleInput(kState, _previousState);
+        controller1.HandleInput(kState, _previousState);
+        controller2.HandleInput(kState, _previousState);
 
         player1.Update(gametime);
         player2.Update(gametime);
@@ -222,7 +222,7 @@ public class Game1 : Game
     private void DrawMainMenu()
     {
         _spriteBatch.DrawString(_font, "Press Enter to Start", new Vector2(800, 450), Color.White);
-        _spriteBatch.DrawString(_font, "Fightting Game", new Vector2(500, 750), Color.White);
+        _spriteBatch.DrawString(_font, "Fighting Game", new Vector2(800, 150), Color.White);
     }
 
     private void DrawCharacterSelect()

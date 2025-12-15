@@ -12,11 +12,11 @@ namespace Projekt_OOP
         public int Hp {get; protected set;} = 100;
         public int AttackDamage {get; protected set;}
         public float Speed{get; protected set;}
-        public bool IsAttacking{get; protected set;} = false;
         protected bool isAttacking{get; set;} = false;
 
         protected float SpecialCooldown = 5f;
         protected float CurrentCooldown = 0f;
+        private Microsoft.Xna.Framework.Vector2 position;
 
         public CharacterType Type{get; protected set;}
 
@@ -54,19 +54,19 @@ namespace Projekt_OOP
         {
             if(direction == 1)
             {
-                Position.X = Position.X - Speed;
+                position.X -=Speed;
             }
             else if(direction == 2)
             {
-                Position.X = Position.X + Speed;
+                position.X += Speed;
             }
             else if(direction == 3)
             {
-                Position.Y = Position.Y - Speed;
+                position.Y -= Speed;
             }
             else if(direction == 4)
             {
-                Position.Y = Position.Y + Speed;
+                position.Y += Speed;
             }
         }
 
